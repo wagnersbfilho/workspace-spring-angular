@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SalaReuniao } from '../sala-reuniao';
+import { SalaReuniaoServiceService } from '../sala-reuniao-service.service';
 
 @Component({
   selector: 'app-sala-reuniao-create',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalaReuniaoCreateComponent implements OnInit {
 
-  constructor() { }
+  //sala: SalaReuniao;
+  submitted = false;
+
+  constructor(public sala: SalaReuniao,
+    private service: SalaReuniaoServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  instanciarSala(): void {
+    this.submitted = false;
+    this.sala = new SalaReuniao();
+  }
+
+  inserirSala() {
+    this.service.inserirSala(this.sala)
+      .subscribe(data => console.log(data),
+                error => console.log(error));
+    this.sala = new SalaReuniao();
+    this.listarSalas();
+  }
+
+  listarSalas() {
+    this.router.navigate(['/salas']);
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.inserirSala();    
   }
 
 }

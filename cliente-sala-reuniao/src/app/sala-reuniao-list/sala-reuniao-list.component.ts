@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 })
 export class SalaReuniaoListComponent implements OnInit {
 
-  salas: Observable<SalaReuniao[]>;
+  salas: Observable<SalaReuniao[]> | undefined;
 
   constructor(private salaReuniaoService: SalaReuniaoServiceService,
     private router: Router) {
-      this.salas = this.salaReuniaoService.getListaSalas();
+      
     }
 
     ngOnInit() {

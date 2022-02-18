@@ -10,6 +10,7 @@ import { SalaReuniaoDetailsComponent } from './sala-reuniao-details/sala-reuniao
 import { SalaReuniaoListComponent } from './sala-reuniao-list/sala-reuniao-list.component';
 import { SalaReuniaoUpdateComponent } from './sala-reuniao-update/sala-reuniao-update.component';
 import { SalaReuniaoServiceService } from './sala-reuniao-service.service';
+import { SalaReuniao } from './sala-reuniao';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SalaReuniaoServiceService } from './sala-reuniao-service.service';
     HttpClientModule
   ],
   providers: [
-    SalaReuniaoServiceService
+    
   ],
   bootstrap: [AppComponent]
 })
