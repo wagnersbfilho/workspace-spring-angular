@@ -41,7 +41,7 @@ export class SalaReuniaoListComponent implements OnInit {
       this.router.navigate(['details', id]);
     }
   
-    updateSala(id: number){
+    atualizarSala(id: number){
       this.router.navigate(['update', id]);
     }
 

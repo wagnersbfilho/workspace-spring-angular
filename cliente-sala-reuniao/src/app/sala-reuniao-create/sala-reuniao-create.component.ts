@@ -10,11 +10,10 @@ import { SalaReuniaoServiceService } from '../sala-reuniao-service.service';
 })
 export class SalaReuniaoCreateComponent implements OnInit {
 
-  //sala: SalaReuniao;
+  sala: SalaReuniao = new SalaReuniao();;
   submitted = false;
 
-  constructor(public sala: SalaReuniao,
-    private service: SalaReuniaoServiceService,
+  constructor(private service: SalaReuniaoServiceService,
     private router: Router) { }
 
   ngOnInit(): void {
