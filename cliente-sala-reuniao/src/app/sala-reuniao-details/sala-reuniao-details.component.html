@@ -1,1 +1,21 @@
-<p>sala-reuniao-details works!</p>
+<h2>Detalhes Sala</h2> 
+
+<hr/>
+<div *ngIf="sala">
+  <div>
+    <label><b>Nome </b></label> {{sala.nome}}
+  </div>
+  <div>
+    <label><b> Data</b></label> {{sala.data}}
+  </div>
+  <div>
+    <label><b> Hora Início</b></label> {{sala.horaInicio}}
+  </div>
+    <div>
+    <label><b> Hora Fim</b></label> {{sala.horaFim}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="listar()" class="btn btn-primary">Voltar</button><br>

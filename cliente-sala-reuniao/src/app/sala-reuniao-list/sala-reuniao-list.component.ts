@@ -27,7 +27,7 @@ export class SalaReuniaoListComponent implements OnInit {
       this.salas = this.salaReuniaoService.getListaSalas();
     }
   
-    deleteSala(id: number) {
+    apagarSala(id: number) {
       this.salaReuniaoService.apagarSala(id)
         .subscribe(
           data => {
@@ -37,7 +37,7 @@ export class SalaReuniaoListComponent implements OnInit {
           error => console.log(error));
     }
   
-    salaDetails(id: number){
+    detalharSala(id: number){
       this.router.navigate(['details', id]);
     }
   
