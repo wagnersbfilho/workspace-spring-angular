@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+//import { RoomDetailsComponent } from 'src/app/sala-reuniao-details/sala-reuniao-details.component';
+import { Observable } from "rxjs";
+import { SalaReuniaoServiceService } from "../sala-reuniao-service.service";
+import { SalaReuniao } from "../sala-reuniao";
+import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sala-reuniao-list',
@@ -7,9 +12,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalaReuniaoListComponent implements OnInit {
 
-  constructor() { }
+  salas: Observable<SalaReuniao[]>;
 
-  ngOnInit(): void {
-  }
+  constructor(private salaReuniaoService: SalaReuniaoServiceService,
+    private router: Router) {
+      this.salas = this.salaReuniaoService.getListaSalas();
+    }
+
+    ngOnInit() {
+      this.reloadData();
+    }
+  
+    reloadData() {
+      this.salas = this.salaReuniaoService.getListaSalas();
+    }
+  
+    deleteSala(id: number) {
+      this.salaReuniaoService.apagarSala(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.reloadData();
+          },
+          error => console.log(error));
+    }
+  
+    salaDetails(id: number){
+      this.router.navigate(['details', id]);
+    }
+  
+    updateSala(id: number){
+      this.router.navigate(['update', id]);
+    }
 
 }
