@@ -1,6 +1,6 @@
 # Projeto de integração Spring Boot e Angular
 
-Desenvolvimento de uma API (CRUD) para gerenciar salas de reunião (Desafio web.bio.me - Bootcamp: Java Developer).
+Desenvolvimento de uma API (CRUD) para gerenciar salas de reunião (Desafio web.dio.me - Bootcamp: Java Developer).
 - Back-end:
   - Spring Boot
   - Spring Data 
